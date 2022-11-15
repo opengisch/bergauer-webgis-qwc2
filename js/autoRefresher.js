@@ -3,7 +3,6 @@ import StandardStore from '../qwc2/stores/StandardStore';
 import { changeLayerProperty } from '../qwc2/actions/layers';
 
 
-let refreshInc = 0;
 function refreshLayer() {
     console.log("Refreshing layers...");
 
@@ -14,17 +13,20 @@ function refreshLayer() {
     let state = store.getState();
     state.layers.flat.forEach(layer => {
         // TODO: url needs to take into account host and scheme
-        if( layer.url && layer.url.startsWith("http://localhost/webgis/qgis_server_proxy/ogc/") )
+        if( layer.name.toLowerCase().includes("bergauer_traffic_lights_demo") )
         {
-            store.dispatch(
-                changeLayerProperty(
-                    layer.uuid, "url", layer.url + `?refresh=${refreshInc}`
-                )
-            );
+            console.log(`Refrehsing ${layer.name}`);
+
+            // We add a ?refresh= parameter with current timestamp to force refresh
+            let [url, qs] = layer.url.split("?");
+            let params = new URLSearchParams(qs);
+            params.set("refresh", Date.now());
+            let newUrl = `${url}?${params}`;
+
+            // Dispatch the change to the store
+            store.dispatch(changeLayerProperty(layer.uuid, "url", newUrl));
         }
     });
-
-    refreshInc += 0.1;
 }
 
 console.log("Installing auto-refresher...");
