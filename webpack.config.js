@@ -23,6 +23,7 @@ module.exports = (env, argv) => {
             assetModuleFilename: 'dist/[hash][ext][query]'
         },
         watchOptions: {
+            poll: 1000,
             ignored: /node_modules(\\|\/)(?!qwc2)/
         },
         devtool: isProd ? 'source-map' : 'eval',

@@ -27,6 +27,7 @@
     },
     "scripts": {
         "prod": "npm run tsupdate && npm run themesconfig && npm run iconfont && webpack --mode production --progress",
+        "watch": "npm run tsupdate && npm run themesconfig && npm run iconfont && webpack watch --mode development --progress",
         "start": "npm run tsupdate && npm run themesconfig && npm run iconfont && webpack serve --mode development --progress --host 0.0.0.0 --port 8081",
         "iconfont": "node qwc2/scripts/makeIconkit.js",
         "themesconfig": "node qwc2/scripts/themesConfig.js",
