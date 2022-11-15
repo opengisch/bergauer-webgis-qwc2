@@ -15,7 +15,7 @@ function refreshLayer() {
         // TODO: url needs to take into account host and scheme
         if( layer.visibility && layer.name.toLowerCase().includes("bergauer_traffic_lights_demo") )
         {
-            console.log(`Refrehsing ${layer.name}`);
+            console.log(`Refreshing ${layer.name}`);
 
             // We add a ?refresh= parameter with current timestamp to force refresh
             let [url, qs] = layer.url.split("?");
