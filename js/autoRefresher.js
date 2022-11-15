@@ -13,7 +13,7 @@ function refreshLayer() {
     let state = store.getState();
     state.layers.flat.forEach(layer => {
         // TODO: url needs to take into account host and scheme
-        if( layer.name.toLowerCase().includes("bergauer_traffic_lights_demo") )
+        if( layer.visibility && layer.name.toLowerCase().includes("bergauer_traffic_lights_demo") )
         {
             console.log(`Refrehsing ${layer.name}`);
 
