@@ -12,6 +12,8 @@ import StandardApp from 'qwc2/components/StandardApp';
 import appConfig from './appConfig';
 import '../icons/build/qwc2-icons.css';
 
+import './autoRefresher.js'
+
 ReactDOM.render(
     <StandardApp appConfig={appConfig}/>,
     document.getElementById('container')
