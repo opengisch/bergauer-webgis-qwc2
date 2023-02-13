@@ -56,6 +56,8 @@ import TimeManagerPlugin from 'qwc2/plugins/TimeManager';
 import FeatureFormPlugin from 'qwc2/plugins/FeatureForm';
 import APIPlugin from 'qwc2/plugins/API';
 import {customAttributeCalculator} from './CustomAttributeCalculator';
+import LoginButtonPlugin from './LoginButton';
+import LogoutButtonPlugin from './LogoutButton';
 
 import defaultLocaleData from '../static/translations/en-US.json';
 
@@ -78,6 +80,8 @@ export default {
                 SnappingSupport: SnappingSupport
             }),
             HomeButtonPlugin: HomeButtonPlugin,
+            LoginButtonPlugin: LoginButtonPlugin,
+            LogoutButtonPlugin: LogoutButtonPlugin,
             LocateButtonPlugin: LocateButtonPlugin,
             ZoomInPlugin: ZoomInPlugin,
             ZoomOutPlugin: ZoomOutPlugin,
